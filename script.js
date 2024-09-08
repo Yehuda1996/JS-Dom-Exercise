@@ -18,3 +18,32 @@ h1Header.addEventListener("click", () => {
     h1Header.style.textDecoration = "underline";
 })
 //2
+const myDiv = document.createElement("div");
+myDiv.style.height = "200px";
+myDiv.style.width = "250px";
+myDiv.style.backgroundColor = "grey";
+body.appendChild(myDiv);
+
+const btn = document.createElement("button");
+btn.innerHTML = "Try me";
+body.appendChild(btn);
+btn.addEventListener("click", () =>{
+    myDiv.style.backgroundColor = "violet";
+})
+
+const select = document.createElement("select");
+const colors = ["grey", "red", "green", "blue", "violet"];
+
+colors.forEach(color => {
+    const option = document.createElement("option");
+    option.value = color;
+    option.text = color.charAt(0).toUpperCase() + color.slice(1);
+    select.appendChild(option);
+});
+
+document.body.appendChild(select);
+
+btn.addEventListener("click", () => {
+    const selectedColor = select.value;
+    myDiv.style.backgroundColor = selectedColor;
+});
